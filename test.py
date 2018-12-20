@@ -12,6 +12,7 @@ class TestTaxIncomeCalculation(unittest.TestCase):
     gaji_2 = 25000000
     gaji_3 = 3000000
     gaji_4 = 6000000
+    gaji_5 = 60000000
 
     def test_gaji_3_single(self):
         print('\nMonthly Salary: {:n}, Profile:{}'.format(self.gaji_3, self.tidak_kawin))
@@ -49,12 +50,17 @@ class TestTaxIncomeCalculation(unittest.TestCase):
         print('Income Tax:{:n}'.format(calculate_tax_income(monthly_salary=self.gaji_1, profile=self.kawin_anak_1)))
         self.assertEqual(calculate_tax_income(monthly_salary=self.gaji_1, profile=self.kawin_anak_1), 750000)
 
-
     def test_gaji_2_single(self):
         print('\nMonthly Salary: {:n}, Profile:{}'.format(self.gaji_2, self.tidak_kawin))
         print('Annual Taxable Income:{:n}'.format(get_annual_taxable_income(self.gaji_2, self.tidak_kawin)))
         print('Income Tax:{:n}'.format(calculate_tax_income(monthly_salary=self.gaji_2, profile=self.tidak_kawin)))
         self.assertEqual(calculate_tax_income(monthly_salary=self.gaji_2, profile=self.tidak_kawin), 31900000)
+
+    def test_gaji_5_anak_3(self):
+        print('\nMonthly Salary: {:n}, Profile:{}'.format(self.gaji_5, self.kawin_anak_3))
+        print('Annual Taxable Income:{:n}'.format(get_annual_taxable_income(self.gaji_5, self.kawin_anak_3)))
+        print('Income Tax:{:n}'.format(calculate_tax_income(monthly_salary=self.gaji_5, profile=self.kawin_anak_3)))
+        self.assertEqual(calculate_tax_income(monthly_salary=self.gaji_5, profile=self.kawin_anak_3), 121900000)
 
 
 if __name__ == '__main__':
